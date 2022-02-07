@@ -5,14 +5,14 @@ from res.imports import *
 x = dc.Data().get_data().iloc[:, 1:-1].values
 y = dc.Data().get_data().iloc[:, -1].values
 
-# applying regression model decision tree
+# applying regression model Random Forest regression
 regressor = RandomForestRegressor(n_estimators=10, random_state=0)
 regressor.fit(x, y)
 
 # printing the value of a employee with position lvl between 6 to 7
 pr.Printer().print_to_console("self", regressor.predict([[6.5]]))
 
-# visualizing decision tree reg result
+# visualizing Random Forest reg result
 x_grid = np.arange(min(x), max(x), 0.1)
 x_grid = x_grid.reshape((len(x_grid), 1))
 plt.scatter(x, y, color="red")
